@@ -143,3 +143,24 @@ describe("test de array de roles", () => {
     expect(getRolesB()).not.toEqual(expect.arrayContaining(attendu));
   });
 });
+
+//Test d'une fonction Asynchrone avec callback (done/try/catch)
+function fetchApi(callback) {
+  setTimeout(() => {
+    callback("{api:ok}");
+  }, 3000);
+}
+
+describe("test de fetch api async", () => {
+  test("tester fetchApi", (done) => {
+    function callback(data) {
+      try {
+        expect(data).toBe("{api:ok}");
+        done();
+      } catch (error) {
+        done(error);
+      }
+    }
+    fetchApi(callback);
+  });
+});
