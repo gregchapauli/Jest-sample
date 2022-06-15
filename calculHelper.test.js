@@ -1,3 +1,4 @@
+import { resolvePlugin } from "@babel/core";
 import {
   afficheMessageCalculAir,
   calculAir,
@@ -162,5 +163,20 @@ describe("test de fetch api async", () => {
       }
     }
     fetchApi(callback);
+  });
+});
+
+//Test d'une fonction Asynchrone avec promise
+function fetchApiPromise() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("{api:ok}");
+    }, 3000);
+  });
+}
+
+test("test de promise", () => {
+  return fetchApiPromise().then((data) => {
+    expect(data).toBe("{api:ok}");
   });
 });
