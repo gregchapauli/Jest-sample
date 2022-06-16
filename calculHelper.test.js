@@ -52,7 +52,6 @@ describe("test de la fonctionnalite calculAirCarre", () => {
 });
 
 //ERROR
-
 describe("test de la fonctionnalite isAdmin", () => {
   let userSimple = { role: "guest" };
   let userAdmin = { role: "admin" };
@@ -70,7 +69,6 @@ describe("test de la fonctionnalite isAdmin", () => {
 });
 
 //toMatchObject
-
 const advancedPermission = {
   domain: "mikecodeur.com",
   level: 4,
@@ -97,7 +95,6 @@ describe("test objet avancé permission", () => {
 });
 
 //toBeInstanceOf
-
 class User {
   constructor(nom) {
     this.nom = nom;
@@ -180,3 +177,12 @@ test("test de promise", () => {
     expect(data).toBe("{api:ok}");
   });
 });
+
+//MOCK
+function forEach(items, callback) {
+  for (let i = 0; i < items.length; i++) {
+    callback(items[i]);
+  }
+}
+
+test("test de forEach avec mock", () => {});
