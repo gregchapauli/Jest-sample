@@ -185,4 +185,9 @@ function forEach(items, callback) {
   }
 }
 
-test("test de forEach avec mock", () => {});
+test("test de forEach avec mock", () => {
+  const mockCallback = jest.fn((x) => "salut" + x);
+  forEach(["toto", "titi", "tata"], mockCallback);
+
+  expect(mockCallback.mock.calls.length).toBe(3);
+});
